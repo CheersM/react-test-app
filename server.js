@@ -8,9 +8,6 @@ const router = path.router('./public/db.json');
 
 server.use(router);
 
-app.get('/ping', function (req, res) {
-  return res.send('pong');
-});
 const PORT = process.env.PORT || 3001;
 
 app.get('/', function (req, res) {
