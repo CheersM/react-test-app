@@ -3,16 +3,21 @@ const bodyParser = require('body-parser');
 const path = require('json-server');
 const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
+const server = jsonServer.create();
+const router = jsonServer.router('./public/db.json');
+server.use(middlewares);
+server.use(router);
 
 app.get('/ping', function (req, res) {
   return res.send('pong');
 });
+const PORT = process.env.PORT || 3001;
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(process.env.PORT || 3001);
+app.listen(PORT);
 
 // const jsonServer = require('json-server');
 // const server = jsonServer.create();
