@@ -2,22 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('json-server');
 const app = express();
-
-const jsonServer = require('json-server');
+app.use(express.static(path.join(__dirname, 'build')));
 const server = jsonServer.create();
 const router = jsonServer.router('./public/db.json');
-const middlewares = jsonServer.defaults({
-  static: './build',
-});
-
-const PORT = process.env.PORT || 3001;
-
 server.use(middlewares);
 server.use(router);
 
-server.listen(PORT, () => {
-  console.log('Server is running');
+app.get('/ping', function (req, res) {
+  return res.send('pong');
 });
+const PORT = process.env.PORT || 3001;
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
