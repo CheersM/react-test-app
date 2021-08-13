@@ -1,11 +1,11 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('json-server');
 const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
-const server = jsonServer.create();
-const router = jsonServer.router('./public/db.json');
-server.use(middlewares);
+
+const server = path.create();
+const router = path.router('./public/db.json');
+
 server.use(router);
 
 app.get('/ping', function (req, res) {
