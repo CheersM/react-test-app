@@ -1,6 +1,6 @@
      Stack:
 
-     ReactJS + хуки
+     ReactJS + hooks
      React Route
      Redux
      Redux thunk
