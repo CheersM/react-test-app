@@ -1,7 +1,7 @@
      Stack:
 
-     ReactJS + hooks
-     React Route
+     ReactJS + hooks(useState, useEffect, useCallback, useMemo) + React-Content-Loader
+     React Router
      Redux
      Redux thunk
      json-server
